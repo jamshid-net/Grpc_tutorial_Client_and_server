@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcTest";
+
+package product;
+
+// Define a message type for the request
+message GetRequest {
+}
+
+service GetProduct{
+	rpc Get(GetRequest) returns (ProductDto);
+	rpc GetList(GetRequest) returns (stream ProductDto);
+}
+
+message ProductDto {
+	 string id = 1;
+	 string name = 2;
+     string description = 3; 
+     double price = 4;
+     string image = 5;
+}
